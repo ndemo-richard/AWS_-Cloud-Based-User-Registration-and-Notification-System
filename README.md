@@ -25,18 +25,22 @@ I broke the setup into several key steps, each presenting its unique challenge.
 ### Step 1: Creating a Cognito User Pool
 
 I started by navigating to the AWS Cognito console and creating a user pool. I configured it to require both an email and a username for sign-in, and enabled email verification. One challenge I encountered here was ensuring the user pool settings were correctly configured—particularly with verification. I realized that a small oversight could cause issues later, so I had to be thorough in checking every configuration option.
+![System Architecture Diagram](images/cognito.png)
 
 ### Step 2: Setting Up DynamoDB
 
 Next, I created a DynamoDB table for storing user data. I named it "UserPreferences" and used the **UserID** as the primary key. Here, I initially struggled with designing an efficient table schema, but I focused on keeping the structure simple for this MVP (Minimum Viable Product).
+![System Architecture Diagram](images/dynamo.png)
 
 ### Step 3: Configuring SNS
 
 I then created an SNS topic called "UserNotifications" to send emails. I learned that working with SNS is fairly straightforward, but configuring permissions for Lambda to interact with SNS correctly was something I had to troubleshoot a couple of times.
+![System Architecture Diagram](images/sns.png)
 
 ### Step 4: Lambda Function Creation
 
 I created a Lambda function called "NotificationHandler" using Python as the runtime. Writing the logic to store user details in DynamoDB and trigger SNS notifications required several iterations, especially when I first faced some permission errors when Lambda tried accessing DynamoDB. After trial and error, I solved it by updating the execution role with the correct policies.
+![System Architecture Diagram](images/lambda.png)
 
 ## Functionality
 
