@@ -14,7 +14,9 @@ I designed the architecture to include:
 - **Amazon SNS** for sending email notifications.
 
 Here’s a simple diagram of the architecture I followed:  
-*(Insert diagram)*
+
+![System Architecture Diagram](images/architecture-diagram.png)
+
 
 ## Setup Instructions
 
